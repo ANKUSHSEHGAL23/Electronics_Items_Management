@@ -1,0 +1,56 @@
+﻿@page
+@model Electronics_Items_Management.Pages.Brand_Details.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!--code to set the location of headings-->
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<!--code to link the details-->
+
+<h1>Brand Details</h1>
+<p>This page is display the details about the Brand of the product </p>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Brand Name
+            </th>
+            <th>
+                Brand Location
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Brand_Detail)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_Branch_Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_Email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

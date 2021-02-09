@@ -1,0 +1,57 @@
+﻿@page
+@model Electronics_Items_Management.Pages.Product_Details.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<!--code to set the location of headings-->
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<!--code to display the product detail table after editing details-->
+<h1>Product Detail</h1>
+
+<h4>Edit Page</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product_Detail.Id" />
+            <div class="form-group">
+                <label asp-for="Product_Detail.Product_Name" class="control-label">Product Name</label>
+                <input asp-for="Product_Detail.Product_Name" class="form-control" />
+                <span asp-validation-for="Product_Detail.Product_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Detail.Price" class="control-label">Price</label>
+                <input asp-for="Product_Detail.Price" class="form-control" />
+                <span asp-validation-for="Product_Detail.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Detail.Brand_DetailId" class="control-label">Brand Detail</label>
+                <select asp-for="Product_Detail.Brand_DetailId" class="form-control" asp-items="ViewBag.Brand_DetailId"></select>
+                <span asp-validation-for="Product_Detail.Brand_DetailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Detail.Category_DetailId" class="control-label">Category Detail</label>
+                <select asp-for="Product_Detail.Category_DetailId" class="form-control" asp-items="ViewBag.Category_DetailId"></select>
+                <span asp-validation-for="Product_Detail.Category_DetailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">GO TO HOME PAGE</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

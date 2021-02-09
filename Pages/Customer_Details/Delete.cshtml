@@ -1,0 +1,52 @@
+﻿@page
+@model Electronics_Items_Management.Pages.Customer_Details.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<!--code to set the location of headings-->
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<!--code to display the customer detail table data to show the details-->
+<h1>Customer Detail</h1>
+<h3>Delete Page</h3>
+
+<h4>Are you sure you want to delete this?</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Customer Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Detail.Customer_Name)
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Detail.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Phone
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Detail.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            Delivery Address
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer_Detail.Delivery_Address)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Customer_Detail.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">GO TO HOME PAGE</a>
+    </form>
+</div>

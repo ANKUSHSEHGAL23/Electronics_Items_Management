@@ -1,0 +1,49 @@
+﻿@page
+@model Electronics_Items_Management.Pages.Order_Details.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!--code to set the location of headings-->
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<h1>Order Detail</h1>
+
+<h4>Details Page</h4>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Quantity
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order_Detail.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            Discount
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order_Detail.Discount)
+        </dd>
+        <dt class="col-sm-2">
+            Customer Detail
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order_Detail.Customer_Detail.Customer_Name)
+        </dd>
+        <dt class="col-sm-2">
+            Product Detail
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order_Detail.Product_Detail.Product_Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Order_Detail.Id">Edit</a> |
+    <a asp-page="./Index">GO TO HOME PAGE</a>
+</div>

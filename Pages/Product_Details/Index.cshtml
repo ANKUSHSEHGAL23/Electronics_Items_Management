@@ -1,0 +1,61 @@
+﻿@page
+@model Electronics_Items_Management.Pages.Product_Details.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!--code to set the location of headings-->
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<!--code to link the details-->
+<h1>Product Details</h1>
+<p>This page is showing the Product Details </p>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Brand Detail
+            </th>
+            <th>
+                Category Detail
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Product_Detail)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_Detail.Brand_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category_Detail.Product)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
